@@ -26,11 +26,6 @@ import java.lang.Float.min
 
 @Composable
 fun MealDetailsScreen(meal: MealResponse?) {
-//    var profilePictureState by remember { mutableStateOf(MealProfilePictureState.Normal) }
-//    val transition = updateTransition(targetState = profilePictureState, label = "")
-//    val imageSize by transition.animateDp(targetValueByState = { it.size }, label = "")
-//    val color by transition.animateColor(targetValueByState = { it.color }, label = "")
-//    val borderWidth by transition.animateDp(targetValueByState = { it.borderWith }, label = "")
     val scrollState = rememberLazyListState()
     val offset = min(
         1f,
@@ -71,21 +66,10 @@ fun MealDetailsScreen(meal: MealResponse?) {
                     )
                 }
             }
-            Button(
-                onClick = {
-//                    profilePictureState =
-//                        if (profilePictureState == MealProfilePictureState.Normal) MealProfilePictureState.Expanded
-//                        else MealProfilePictureState.Normal
-                }, modifier = Modifier
-                    .padding(16.dp)
-                    .align(Alignment.CenterHorizontally)
-            ) {
-                Text(text = "Change state of meal profile picture")
-            }
             val dummyContentList = (0..100).map { it.toString() }
             LazyColumn(state = scrollState) {
                 items(dummyContentList) { dummyItems ->
-                    Text(text = dummyItems, modifier = Modifier.padding(24.dp))
+                    Text(text = "List item example $dummyItems", modifier = Modifier.padding(24.dp))
                 }
             }
         }
